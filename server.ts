@@ -24,7 +24,7 @@ const authClient = new auth.OAuth2User({
 });
 
 
-app.get("/callback", async function (req, res) {
+app.get("/oauth/callback", async function (req, res) {
     try {
         const { code, state } = req.query;
 
@@ -61,7 +61,7 @@ app.get("/callback", async function (req, res) {
     }
 });
 
-app.get("/auth", async function (req, res) {
+app.get("/oauth/auth", async function (req, res) {
     const { uid } = req.query;
 
     if (uid === undefined) {
@@ -83,7 +83,7 @@ app.get("/auth", async function (req, res) {
     });
 });
 
-app.get("/checkRetweets", async function (req, res) {
+app.get("/oauth/checkRetweets", async function (req, res) {
     try {
         const { access_token, refresh_token, userId } = req.query;
 
@@ -118,7 +118,7 @@ app.get("/checkRetweets", async function (req, res) {
                 "author_id",
                 "referenced_tweets.id"
             ],
-            max_results: 10
+            max_results: 1
         })).data;
 
         const latestToken = await tempAuth.refreshAccessToken();
@@ -151,7 +151,7 @@ app.get("/checkRetweets", async function (req, res) {
 });
 
 
-app.get("/getTwitterName", async function (req, res) {
+app.get("/oauth/getTwitterName", async function (req, res) {
     try {
         const { access_token, refresh_token } = req.query;
 
