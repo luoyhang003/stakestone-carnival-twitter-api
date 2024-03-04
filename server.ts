@@ -10,7 +10,7 @@ const app = express();
 
 const STAKE_STONE_ID = "1657625619474284546";
 const SERVER_URL = "https://api.stakestone.io:8064/stone/integral/save"
-const CALLBACK_URL = "https://api.stakestone.io:3000/callback";
+const CALLBACK_URL = "https://api.stakestone.io/oauth/callback";
 const CLIENT_ID = process.env.CLIENT_ID as string;
 const CLIENT_SECRET = process.env.CLIENT_SECRET as string;
 const DEST_TWEET_ID = "1761788204745904498";
