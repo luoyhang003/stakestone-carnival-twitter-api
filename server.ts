@@ -76,9 +76,10 @@ app.get("/oauth/auth", async function (req, res) {
         code_challenge_method: "s256",
     });
 
+    const decoded = decodeURIComponent(authUrl);
 
     res.json({
-        authUrl,
+        decoded,
         uid
     });
 });
